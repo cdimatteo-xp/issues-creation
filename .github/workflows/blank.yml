@@ -36,4 +36,5 @@ jobs:
           echo test, and deploy your project.
       - name: Create an issue
         uses: JasonEtco/create-an-issue@v2.9.1
-    
+        env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
