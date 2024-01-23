@@ -9,8 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get Filename
+      - env:
+          ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
       - uses: JasonEtco/create-an-issue@v2.9.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          filename: .github/ISSUE_TEMPLATE/bug_report.md
+          filename: ISSUE_TEMPLATE_FILENAME
+          #filename: .github/ISSUE_TEMPLATE/bug_report.md
