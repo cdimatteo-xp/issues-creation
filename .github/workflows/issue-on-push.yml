@@ -16,7 +16,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
-      - run: echo "${{ env.ISSUE_TEMPLATE_FILENAME }}"
+      - run: echo "$ISSUE_TEMPLATE_FILENAME"
   stuff:
     runs-on: ubuntu-latest
     steps:
