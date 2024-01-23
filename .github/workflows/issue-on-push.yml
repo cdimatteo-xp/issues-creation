@@ -5,19 +5,25 @@ permissions:
   contents: read
   issues: write 
 jobs:
-  stuff:
+  get_filename:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
         id: abc
         with:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
+        name: GetPushedFilename
+        env:
+          ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
+  stuff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - uses: JasonEtco/create-an-issue@v2.9.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_TEMPLATE_FILENAME: "${{ steps.abc.outputs.added }}"
         with:
-          filename: ISSUE_TEMPLATE_FILENAME
+          filename: ${{ ISSUE_TEMPLATE_FILENAME }}
           #filename: .github/ISSUE_TEMPLATE/bug_report.md
