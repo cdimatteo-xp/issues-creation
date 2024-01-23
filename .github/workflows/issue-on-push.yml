@@ -17,7 +17,7 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2.9.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
+          ISSUE_TEMPLATE_FILENAME: "${{ steps.abc.outputs.added }}"
         with:
           filename: ISSUE_TEMPLATE_FILENAME
           #filename: .github/ISSUE_TEMPLATE/bug_report.md
