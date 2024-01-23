@@ -16,6 +16,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           ISSUE_TEMPLATE_FILENAME: "${{ steps.abc.outputs.added }}"
+      - name: Set Finename
+        run: echo "ISSUE_TEMPLATE_FILENAME=${{ steps.abc.outputs.added }}"
+      - name: Test Finename
+        run: echo $ISSUE_TEMPLATE_FILENAME
   stuff:
     runs-on: ubuntu-latest
     steps:
