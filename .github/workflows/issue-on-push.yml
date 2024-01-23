@@ -15,7 +15,7 @@ jobs:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
-          issenv.ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
+          ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
   stuff:
     runs-on: ubuntu-latest
     steps:
@@ -24,5 +24,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          filename: ${{ issenv.ISSUE_TEMPLATE_FILENAME }}
+          filename: ${{ ISSUE_TEMPLATE_FILENAME }}
           #filename: .github/ISSUE_TEMPLATE/bug_report.md
