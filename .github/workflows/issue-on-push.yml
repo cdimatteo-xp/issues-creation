@@ -14,7 +14,6 @@ jobs:
         with:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set Finename
         env:
           issenv.ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
   stuff:
