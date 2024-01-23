@@ -15,7 +15,7 @@ jobs:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set Finename
-        run: "ISSUE_TEMPLATE_FILENAME=${{ steps.abc.outputs.added }}"
+        run: echo "ISSUE_TEMPLATE_FILENAME=${{ steps.abc.outputs.added }}"
       - name: Test Finename
         run: echo $ISSUE_TEMPLATE_FILENAME
   stuff:
