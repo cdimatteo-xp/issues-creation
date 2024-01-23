@@ -17,7 +17,7 @@ jobs:
         env:
           ISSUE_TEMPLATE_FILENAME: "${{ steps.abc.outputs.added }}"
       - name: Set Finename
-        run: echo "ISSUE_TEMPLATE_FILENAME=${{ steps.abc.outputs.added }}"
+        run: "ISSUE_TEMPLATE_FILENAME=${{ steps.abc.outputs.added }}"
       - name: Test Finename
         run: echo $ISSUE_TEMPLATE_FILENAME
   stuff:
