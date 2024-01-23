@@ -15,7 +15,7 @@ jobs:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
         name: GetPushedFilename
-        env:
+      - env:
           ISSUE_TEMPLATE_FILENAME: ${{ steps.abc.outputs.added }}
   stuff:
     runs-on: ubuntu-latest
